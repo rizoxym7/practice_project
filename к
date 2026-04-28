@@ -1,0 +1,33 @@
+import json 
+import os 
+
+FILE_NAME = "users.json"
+
+def load_users():
+    if not os.path.exists(FILE_NAME):
+        return[]
+
+    with open(FILE_NAME, "r") as file:
+        try:
+            return json.load(file)
+        except:
+            return []
+
+def save_users(users):
+    with open(FILE_NAME, "w") as file:
+        json.dump(users, file, indent = 4)
+
+def add user(name, age):
+    users = load _users()
+
+    new_user {"name" : name, "age" : age}
+
+    users.append(new_user)
+    save_users(users)
+
+def get_users():
+    users = load_users()
+
+    for user in users:
+        print(f"Name: {user['name']}, Age: {user["age"]}")
+        
